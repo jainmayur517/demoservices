@@ -2,7 +2,7 @@ const http = require('http');
 const loggerDetail = require('./util/LoggerConnect');
 
 const server = http.createServer((req, res) => {
-      loggerDetail.logInfo('info', req);
+      loggerDetail.logInfo(req);
 
 });
 
@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
 
 process.on('uncaughtException', async (err) => {
     console.error('Uncaught Exception: ', err);
-    await loggerDetail.logError('error',err)
+    await loggerDetail.logError(err)
     process.exit(1);
   });
   

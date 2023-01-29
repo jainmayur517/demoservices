@@ -6,7 +6,8 @@ const urlLogger='http://localhost:3000/log';
 const serviceName=process.env.Service_Name;
 module.exports= class loggerDetail{
 
-static async logInfo(level, req){
+static async logInfo(req){
+  const level=`info`;
   const ipUser=req.socket.localAddress;
     const host = req.headers.host;
     const route = req.url;
@@ -27,8 +28,8 @@ static async logInfo(level, req){
 }
 
 
-  static async logError(level, error){
-  
+  static async logError(error){
+    const level=`error`;
    let err= error.toString();
    const message={err,serviceName};
 
